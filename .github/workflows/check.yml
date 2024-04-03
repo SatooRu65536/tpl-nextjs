@@ -1,9 +1,9 @@
-name: Prettier
+name: Prettier & Eslint
 
 on: [pull_request]
 
 jobs:
-  prettier:
+  prettier-eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,4 +19,13 @@ jobs:
       - name: Install Yarn
         run: yarn install
       - name: Run Prettier
-        run: yarn format:ci
+        run: |
+          yarn format:ci
+          yarn lint:ci
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+          key: node-v${{ matrix.node-version }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
