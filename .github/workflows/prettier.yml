@@ -1,0 +1,22 @@
+name: Prettier
+
+on: [pull_request]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: |
+            **/*.{ts,tsx,js,jsx,json}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Install Yarn
+        run: yarn install
+      - name: Run Prettier
+        run: yarn format:ci
