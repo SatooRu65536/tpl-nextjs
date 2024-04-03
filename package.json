@@ -40,5 +40,9 @@
     "prettier": "^3.2.5",
     "storybook": "^8.0.5",
     "typescript": "^5.4.3"
+  },
+  "volta": {
+    "node": "20.12.1",
+    "yarn": "4.1.1"
   }
 }
