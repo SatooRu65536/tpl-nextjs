@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
+    "lint:ci": "next lint",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
+    "format:ci": "prettier --check '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest"

@@ -1,6 +1,14 @@
 module.exports = {
   ignorePatterns: ['.eslintrc.js'],
-  extends: ['next/core-web-vitals', 'eslint:recommended', 'plugin:import/typescript', 'plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking', 'prettier', 'plugin:storybook/recommended'],
+  extends: [
+    'next/core-web-vitals',
+    'eslint:recommended',
+    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
   plugins: ['import-access'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
