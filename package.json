@@ -9,7 +9,8 @@
     "lint": "next lint --fix",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "jest"
   },
   "dependencies": {
     "next": "14.1.4",
@@ -26,6 +27,8 @@
     "@storybook/nextjs": "^8.0.5",
     "@storybook/react": "^8.0.5",
     "@storybook/test": "^8.0.5",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -37,6 +40,8 @@
     "eslint-plugin-import-access": "^2.1.2",
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-unused-imports": "^3.1.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.2.5",
     "storybook": "^8.0.5",
     "typescript": "^5.4.3"
