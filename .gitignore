@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
+.yarn
 
 # testing
 /coverage
@@ -36,3 +36,6 @@ yarn-error.log*
 next-env.d.ts
 package-lock.json
 .eslintcache
+
+*storybook.log
+stories/
