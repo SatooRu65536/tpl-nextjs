@@ -9,13 +9,7 @@ jobs:
   prettier-eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v2
-        with:
-          path: ${YARN_CACHE_FOLDER}
-          key: ${{ runner.os }}-yarn-cache-v1
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v4
       - uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
@@ -23,9 +17,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - name: Install Yarn
+          cache: 'yarn'
+      - uses: actions/cache@v3
+        id: node_modules_cache_id
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - run: echo '${{ toJSON(steps.node_modules_cache_id.outputs) }}'
+      - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: yarn install
-      - name: Run Prettier
-        run: |
-          yarn format:ci
-          yarn lint:ci
+      - run: yarn format:ci
+      - run: yarn lint:ci
