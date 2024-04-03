@@ -21,6 +21,8 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-      - run: yarn install
+      - run: echo '${{ toJSON(steps.setup_node_id.outputs) }}'
+      - if: ${{ steps.setup_node_id.outputs.cache-hit != 'true' }}
+        run: yarn install
       - run: yarn format:ci
       - run: yarn lint:ci
