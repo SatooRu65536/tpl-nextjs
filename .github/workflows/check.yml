@@ -41,5 +41,4 @@ jobs:
       - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: pnpm install
 
-      - run: pnpm format:ci
-      - run: pnpm lint:ci
+      - run: pnpm lint:check
