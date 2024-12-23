@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <Center>
       <div>
-        <h1>Hello, Next.js!</h1>
+        <h1>Hello, Next.js!!</h1>
         <Button onClick={() => { toggleDialog(); }}>Click me!!</Button>
         <Dialog onOpenChange={setOpen} open={open} />
       </div>
