@@ -1,7 +1,7 @@
 import antfu from '@antfu/eslint-config';
 
 export default antfu({
-  ignores: ['*.md', '*.json', 'functions/[[path]].ts'],
+  ignores: ['*.md', '*.json', 'functions/[[path]].ts', '.github/**/*'],
   formatters: true,
   stylistic: {
     quotes: 'single',
