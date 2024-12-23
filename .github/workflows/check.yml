@@ -1,6 +1,6 @@
 name: Check
 
-on: [pull_request]
+on: [pull_request, push]
 
 env:
   pnpm_CACHE_FOLDER: .cache/pnpm
@@ -34,7 +34,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: pnpm install
